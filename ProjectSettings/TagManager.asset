@@ -3,18 +3,29 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Meteor
+  - Ground
+  - Voice
+  - Card
+  - Closer
+  - Opener
+  - OpenerInside
+  - RedDragon
+  - Hand
+  - mouth
+  - SafeRoom
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Shadow
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Interactable
+  - Ground
+  - Target
+  - Obstruction
   - 
   - 
   - 
