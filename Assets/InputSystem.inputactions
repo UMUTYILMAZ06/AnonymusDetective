@@ -1,0 +1,34 @@
+{
+    "name": "InputSystem",
+    "maps": [
+        {
+            "name": "Spaceship",
+            "id": "5fec94b4-74fe-4df6-8480-e5968e8b1ab4",
+            "actions": [
+                {
+                    "name": "Running",
+                    "type": "Button",
+                    "id": "985253af-9955-4c0f-a737-cb8477c4f6e4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5fc36908-68fb-4593-a2d6-ccd8e3e1aee9",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Running",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

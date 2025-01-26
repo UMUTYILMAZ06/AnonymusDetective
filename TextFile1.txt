@@ -1,0 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Breakable : MonoBehaviour
+{
+    public List<GameObject> breakablePieces;
+    //
+    public AudioClip breakSound;
+    private AudioSource audioSource;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+        foreach (var item in breakablePieces)
+        {
+            item.SetActive(false);
+        }
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        // Check if the stone has collided with the ground
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            // Call the Break function
+            Break();
+        }
+    }
+
+    public void Break()
+    {
+        foreach (var item in breakablePieces)
+        {
+            item.SetActive(true);
+            item.transform.parent = null;
+        }
+        gameObject.SetActive(false);
+
+        if (breakSound != null)
+        {
+            Debug.Log("music");
+            audioSource.Play();
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}

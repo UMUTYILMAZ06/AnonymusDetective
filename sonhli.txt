@@ -1,0 +1,129 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
+
+public class VelocityTracker : MonoBehaviour
+{
+    public int maxMember;
+    public float cameraOffset;
+    //public Transform player;
+    private Rigidbody rb;
+   
+    private Queue<Vector3> posqueue;
+
+    public float forceMultyiplier ;
+    private XRGrabInteractable _interactable;
+
+    private Vector3 initialPosition;
+    private Vector3 finalPosition;
+    private Vector3 headPosition;
+    private Transform hand;
+    private IEnumerator _startCalculate;
+
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+       
+        posqueue = new Queue<Vector3>();
+
+        _interactable = GetComponent<XRGrabInteractable>();
+
+        _interactable.selectEntered.AddListener(Entered);
+        _interactable.selectExited.AddListener(Exited);
+       
+        
+    }
+
+
+   public void Entered(SelectEnterEventArgs args)
+    {
+       
+        posqueue = new Queue<Vector3>();
+        hand = args.interactorObject.transform;
+        Debug.Log("Enter");
+        if(_startCalculate != null)
+        {
+            StopCoroutine(_startCalculate);
+        }
+
+        _startCalculate = StartToCalculate();
+
+       StartCoroutine(_startCalculate);
+    }
+
+
+    
+
+    void Exited(SelectExitEventArgs args)
+    {
+        initialPosition = posqueue.Peek();
+        
+        finalPosition = GetHandPosition();
+
+
+        Vector3 positionChange = finalPosition - initialPosition;
+
+        Debug.Log("Hand"+finalPosition.y);
+        Debug.Log("HEad" + cameraOffset);
+
+        if (finalPosition.y < cameraOffset )
+        {
+            positionChange.x = 0;
+            positionChange.z = 0;
+
+            if (positionChange.y > 0)
+            {
+                Debug.Log("Force");
+                ApplyUpwardForce(positionChange);
+            }
+
+
+        }
+
+
+       // Debug.Log($"Hand moved by: {positionChange} over 1 second.");
+
+
+
+        Debug.Log("Exit");
+    }
+
+
+    private Vector3 GetHandPosition()
+    {
+        return  hand.position;
+     }
+
+    private IEnumerator StartToCalculate()
+    { 
+        while(true)
+        {
+          initialPosition = GetHandPosition();
+           if(posqueue.Count>= maxMember)
+            {
+                Vector3 dequeuedPosition = posqueue.Peek();
+                posqueue.Dequeue();
+               // Debug.Log(dequeuedPosition);
+            }
+            
+            posqueue.Enqueue(initialPosition);
+
+          yield return new WaitForSeconds(0.2f);
+        }
+       
+    }
+
+    
+
+    public void ApplyUpwardForce(Vector3 uforce)
+    {
+        // Use the position change from PositionChangeTracker and multiply it by 5
+        Vector3 force = uforce * forceMultyiplier;
+        rb.AddForce(force);
+        Debug.Log($"Hand moved by:" + force);
+    }
+}
+
