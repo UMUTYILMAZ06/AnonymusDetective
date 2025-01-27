@@ -1,4 +1,13 @@
-İşte tüm içeriği İngilizce olarak güncelledim ve isteklerin doğrultusunda düzenledim:  
+Video bağlantısını README'ye şu şekilde ekleyebilirsin:  
+
+---
+
+## 🎥 Gameplay Videos and Screenshots  
+Check out in-game screenshots and gameplay videos [here](https://youtu.be/_FAEsr1N4SY).  
+
+---
+
+Tam hali:  
 
 ---
 
@@ -37,13 +46,14 @@ Fulfill the tasks assigned to you and ensure the balance of the galaxy is mainta
 ---
 
 ## 🎥 Gameplay Videos and Screenshots  
-Check out in-game screenshots and gameplay videos [here](#).  
+Check out in-game screenshots and gameplay videos [here](https://youtu.be/_FAEsr1N4SY).  
 
 ---
 
 ## 📢 Contact  
 For any issues or suggestions, feel free to reach out:   
-- **LinkedIn:** [Umut's LinkedIn Profile](https://www.linkedin.com/in/umut-y%C4%B1lmaz-577221251/)
+- **LinkedIn:** [Umut's LinkedIn Profile](https://www.linkedin.com/in/umut-y%C4%B1lmaz-577221251/)  
 
+--- 
 
----
+Bu şekilde hem video hem de LinkedIn bağlantısı düzgünce yerleştirilmiş oldu! 😊
