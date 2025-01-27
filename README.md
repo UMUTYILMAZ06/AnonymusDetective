@@ -1,16 +1,3 @@
-Video bağlantısını README'ye şu şekilde ekleyebilirsin:  
-
----
-
-## 🎥 Gameplay Videos and Screenshots  
-Check out in-game screenshots and gameplay videos [here](https://youtu.be/_FAEsr1N4SY).  
-
----
-
-Tam hali:  
-
----
-
 # AnonymousDetective 🎭🔍  
 **Genre:** Adventure & Horror | **Platform:** Meta Quest VR  
 **Developer:** Umut  
