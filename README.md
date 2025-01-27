@@ -43,4 +43,4 @@ For any issues or suggestions, feel free to reach out:
 
 --- 
 
-Bu şekilde hem video hem de LinkedIn bağlantısı düzgünce yerleştirilmiş oldu! 😊
+
